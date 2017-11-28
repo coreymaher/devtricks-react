@@ -10,13 +10,134 @@
         <link rel="stylesheet" href="node_modules/reveal.js/css/theme/black.css">
 
         <!-- Theme used for syntax highlighting of code -->
-        <link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/solarized-light.css">
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
-                <section>Slide 1</section>
-                <section>Slide 2</section>
+                <section>
+                    <h1>Dev Tricks - React</h1>
+                    <img src="images/React.svg" alt="React Logo" style="width: 200px; height: 200px;" />
+                    <p><small>Corey Maher - November 2017</small></p>
+                </section>
+
+                <section>
+                    <h1>What is React?</h1>
+                </section>
+
+                <section>
+                    <p>JS library for building user interfaces</p>
+                    <p class="fragment">Developed by Facebook</p>
+                    <p class="fragment">Open sourced in 2013</p>
+                </section>
+
+                <section>
+                    <img src="images/MVC.png" alt="Model-View-Controller Diagram" />
+                </section>
+
+                <section>
+                    <h1>Why use React?</h1>
+                </section>
+
+                <section>
+                    <p>Declarative</p>
+                    <p class="fragment">Universal</p>
+                    <p class="fragment">Component Based</p>
+                </section>
+
+                <section>
+                    <p>Imperative</p>
+                    <p>Tell the interpreter what to do</p>
+                    <pre class="fragment"><code class="hljs javascript" data-trim>
+function onClick(e) {
+    document.querySelectorAll('#nav .selected').forEach((el) {
+        el.classList.remove('selected');
+    });
+
+    e.target.classList.add('selected');
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Declarative</p>
+                    <p>Describe the result you want</p>
+                    <pre class="fragment"><code class="hljs javascript" data-trim>
+function render() {
+    return (
+        &lt;nav&gt;
+            &lt;NavItem className="selected"&gt;Foo&lt;/NavItem&gt;
+            &lt;NavItem&gt;Bar&lt;/NavItem&gt;
+        &lt;/nav&gt;
+    );
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Universal</p>
+                    <p class="fragment">Server Side / Node</p>
+                    <p class="fragment">Browser Side</p>
+                    <p class="fragment">Native* Android/iOS</p>
+                </section>
+
+                <section>
+                    <p>Component Based</p>
+                    <p class="fragment">Reusable, encapsulated logic</p>
+                    <p class="fragment">Thousands of React components available on npm</p>
+                </section>
+
+                <section>
+                    <h1>What does it look like?</h1>
+                </section>
+
+                <section>
+                    <pre><code class="hljs html" data-trim>
+&lt;html&gt;
+&lt;body&gt;
+    &lt;div id="react-app"&gt;&lt;/div&gt;
+    &lt;script src="react.js"&gt;&lt;/script&gt;
+    &lt;script src="react-dom.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+    var rootElement = React.createElement('div', {},
+        React.createElement('h1', {}, 'React - Hello World'),
+        React.createElement('p', {}, 'This is a React demonstration'),
+        React.createElement('p', {},
+            'The documentation is located at the ',
+            React.createElement('a', {href:'https://reactjs.org'}, 'home page'),
+            '.'
+        ),
+    );
+
+    ReactDOM.render(rootElement, document.getElementById('react-app'));
+});
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                    <p><a href="examples/create-element.html" target="_blank">View</a></p>
+                </section>
+
+                <section>
+                    <p>React.createElement</p>
+                    <pre><code class="hljs javascript" data-trim>
+React.createElement(type, [props], [...children]);
+                    </code></pre>
+                    <p class="fragment">type - tag name (div, p, ...) or React component</p>
+                    <p class="fragment">props - optional props/attributes (href, src, ...)</p>
+                    <p class="fragment">children - optional children react elements</p>
+                </section>
+
+                <section>
+                    <p>ReactDOM.render</p>
+                    <pre><code class="hljs javascript" data-trim>
+ReactDOM.render(element, container[, callback])
+                    </code></pre>
+                    <p class="fragment">element - root react element</p>
+                    <p class="fragment">container - DOM element to inject the root react element into</p>
+                    <p class="fragment">callback - optional callback which is run after the root element is rendered</p>
+                </section>
             </div>
         </div>
 
