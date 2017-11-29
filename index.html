@@ -8,6 +8,7 @@
 
         <link rel="stylesheet" href="node_modules/reveal.js/css/reveal.css">
         <link rel="stylesheet" href="node_modules/reveal.js/css/theme/black.css">
+        <link rel="stylesheet" href="css/style.css">
 
         <!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="css/solarized-light.css">
@@ -100,7 +101,7 @@ function render() {
     &lt;script src="react-dom.js"&gt;&lt;/script&gt;
     &lt;script&gt;
 document.addEventListener('DOMContentLoaded', function() {
-    var rootElement = React.createElement('div', {},
+    const rootElement = React.createElement('div', {},
         React.createElement('h1', {}, 'React - Hello World'),
         React.createElement('p', {}, 'This is a React demonstration'),
         React.createElement('p', {},
@@ -121,22 +122,172 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <section>
                     <p>React.createElement</p>
-                    <pre><code class="hljs javascript" data-trim>
-React.createElement(type, [props], [...children]);
-                    </code></pre>
-                    <p class="fragment">type - tag name (div, p, ...) or React component</p>
-                    <p class="fragment">props - optional props/attributes (href, src, ...)</p>
-                    <p class="fragment">children - optional children react elements</p>
+                    <pre>React.createElement(type, [props], [...children]);</pre>
+                </section>
+
+                <section>
+                    <p>React.createElement</p>
+                    <pre>React.createElement(<span class="highlight">type</span>, [props], [...children]);</pre>
+                    <p><span class="highlight">type</span> - tag name (div, p, ...) or React component</p>
+                </section>
+
+                <section>
+                    <p>React.createElement</p>
+                    <pre>React.createElement(type, <span class="highlight">[props]</span>, [...children]);</pre>
+                    <p>type - tag name (div, p, ...) or React component</p>
+                    <p><span class="highlight">props</span> - optional props/attributes (href, src, ...)</p>
+                </section>
+
+                <section>
+                    <p>React.createElement</p>
+                    <pre>React.createElement(type, [props], <span class="highlight">[...children]</span>);</pre>
+                    <p>type - tag name (div, p, ...) or React component</p>
+                    <p>props - optional props/attributes (href, src, ...)</p>
+                    <p><span class="highlight">children</span> - optional children react elements</p>
                 </section>
 
                 <section>
                     <p>ReactDOM.render</p>
+                    <pre>ReactDOM.render(element, container[, callback])</pre>
+                </section>
+
+                <section>
+                    <p>ReactDOM.render</p>
+                    <pre>ReactDOM.render(<span class="highlight">element</span>, container[, callback])</pre>
+                    <p><span class="highlight">element</span> - root react element</p>
+                </section>
+
+                <section>
+                    <p>ReactDOM.render</p>
+                    <pre>ReactDOM.render(element, <span class="highlight">container</span>[, callback])</pre>
+                    <p>element - root react element</p>
+                    <p><span class="highlight">container</span> - DOM element to inject the root react element into</p>
+                </section>
+
+                <section>
+                    <p>ReactDOM.render</p>
+                    <pre>ReactDOM.render(element, container<span class="highlight">[, callback]</span>)</pre>
+                    <p>element - root react element</p>
+                    <p>container - DOM element to inject the root react element into</p>
+                    <p><span class="highlight">callback</span> - optional callback which is run after the root element is rendered</p>
+                </section>
+
+                <section>
+                    <h1>Got anything less verbose?</h1>
+                </section>
+
+                <section>
+                    <h1>JSX</h1>
+                    <p class="fragment">XML-like syntax extension</p>
+                    <p class="fragment">Transpiles down to JS (React.createElement)</p>
+                </section>
+
+                <section>
+                    <p>Raw JS</p>
                     <pre><code class="hljs javascript" data-trim>
-ReactDOM.render(element, container[, callback])
+const root = React.createElement('div', {},
+    React.createElement('h1', {}, 'React - Hello World'),
+    React.createElement('p', {}, 'This is a React demonstration'),
+    React.createElement('p', {},
+        'The documentation is located at the ',
+        React.createElement('a', {href:'https://reactjs.org'}, 'home page'),
+        '.'
+    ),
+);
                     </code></pre>
-                    <p class="fragment">element - root react element</p>
-                    <p class="fragment">container - DOM element to inject the root react element into</p>
-                    <p class="fragment">callback - optional callback which is run after the root element is rendered</p>
+                </section>
+
+                <section>
+                    <p>JSX</p>
+                    <pre><code class="hljs javascript" data-trim>
+const root = (&lt;div&gt;
+    &lt;h1&gt;React - Hello World&lt;/h1&gt;
+    &lt;p&gt;This is a React demonstration&lt;/p&gt;
+    &lt;p&gt;
+        The documentation is located at the
+        &lt;a href="https://reactjs.org"&gt;home page&lt;/a&gt;.
+    &lt;/p&gt;
+&lt;/div&gt;);
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Embedding Expressions</p>
+                    <pre><code class="hljs javascript" data-trim>
+const name = 'Corey';
+const element = &lt;p&gt;Hello {name}&lt;/p&gt;;
+                    </code></pre>
+                    <pre class="fragment"><code class="hljs nohighlight">Hello Corey</code></pre>
+                </section>
+
+                <section>
+                    <p>Embedding Expressions</p>
+                    <pre><code class="hljs javascript" data-trim>
+const element = &lt;p&gt;
+    The circumference of a circle with a radius of 1.5 meters is:&lt;br /&gt;
+    {(2 * Math.PI * 1.5).toFixed(4)} meters.
+&lt;/p&gt;;
+                    </code></pre>
+                    <pre class="fragment"><code class="hljs nohighlight" data-trim>
+The circumference of a circle with a radius of 1.5 meters is:
+9.4248 meters.
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Embedding Expressions</p>
+                    <pre><code class="hljs javascript" data-trim>
+const url = 'https://reactjs.org';
+const element = &lt;p&gt;
+    The React documentation is located at:
+    &lt;a href={url} target="_blank"&gt;{url}&lt;/a&gt;
+&lt;/p&gt;;
+                    </code></pre>
+                    <pre class="fragment">The React documentation is located at: <a href="https://reactjs.org" target="_blank">https://reactjs.org</a></pre>
+                </section>
+
+                <section>
+                    <p>Rendering Lists</p>
+                    <pre><code class="hljs javascript" data-trim>
+const users = [
+    { name: 'Malcolm Reynolds', occupation: 'Captain / Browncoat' },
+    { name: 'Svlad Cjelli', occupation: 'Holistic Detective' },
+    { name: 'Daniel Jackson', occupation: 'Archaeologist' },
+];
+const userElements = users.map((user) => {
+    return &lt;div&gt;{user.name} - {user.occupation}&lt;/div&gt;;
+});
+const element = &lt;div&gt;
+    &lt;h1&gt;Users&lt;/h1&gt;
+    &lt;hr /&gt;
+    &lt;div&gt;{userElements}&lt;/div&gt;
+&lt;/div&gt;;
+                    </code></pre>
+                    <pre class="fragment">
+Users<hr />Malcolm Reynolds - Captain / Browncoat
+Svlad Cjelli - Holistic Detective
+Daniel Jackson - Archaeologist
+                    </pre>
+                </section>
+
+                <section>
+                    <p>Rendering Lists - Keys</p>
+                    <pre><code class="hljs javascript" data-trim>
+const userElements = users.map((user) => {
+    return &lt;div&gt;{user.name} - {user.occupation}&lt;/div&gt;;
+});
+                    </code></pre>
+
+                    <pre><code class="hljs nohighlight" data-trim>
+Warning: Each child in an array or iterator
+should have a unique "key" prop.
+                    </code></pre>
+
+                    <pre class="fragment"><code class="hljs javascript" data-trim>
+const userElements = users.map((user) => {
+    return &lt;div key={user.name}&gt;{user.name} - {user.occupation}&lt;/div&gt;;
+});
+                    </code></pre>
                 </section>
             </div>
         </div>
