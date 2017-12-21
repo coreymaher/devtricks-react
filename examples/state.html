@@ -1,0 +1,47 @@
+<html>
+<body>
+    <div id="react-app"></div>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="../node_modules/react/umd/react.development.js"></script>
+    <script src="../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script type="text/babel" data-presets="es2015,react">
+class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            counter: 0,
+        };
+        this.handleClickUp = this.handleClickUp.bind(this);
+        this.handleClickDown = this.handleClickDown.bind(this);
+    }
+
+    handleClickUp() {
+        this.setState((previousState) => {
+            return { counter: previousState.counter + 1 };
+        });
+    }
+
+    handleClickDown() {
+        this.setState((previousState) => {
+            return { counter: previousState.counter - 1 };
+        });
+    }
+
+    render() {
+        return (<div>
+            Counter: {this.state.counter} <br />
+            <button onClick={this.handleClickDown}>Decrease</button> &nbsp;
+            <button onClick={this.handleClickUp}>Increase</button>
+        </div>);
+    }
+}
+
+function App() {
+    return <Counter />;
+}
+
+ReactDOM.render(<App />, document.getElementById('react-app'));
+    </script>
+</body>
+</html>

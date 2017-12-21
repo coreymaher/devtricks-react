@@ -17,9 +17,10 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1>Dev Tricks - React</h1>
+                    <h1>Intro to React JS</h1>
+                    <h2>Dev Tricks</h2>
                     <img src="images/React.svg" alt="React Logo" style="width: 200px; height: 200px;" />
-                    <p><small>Corey Maher - November 2017</small></p>
+                    <p><small>Corey Maher - December 2017</small></p>
                 </section>
 
                 <section>
@@ -48,7 +49,7 @@
 
                 <section>
                     <p>Imperative</p>
-                    <p>Tell the interpreter what to do</p>
+                    <p>Describe a series of steps to reach a goal</p>
                     <pre class="fragment"><code class="hljs javascript" data-trim>
 function onClick(e) {
     document.querySelectorAll('#nav .selected').forEach((el) {
@@ -85,7 +86,7 @@ function render() {
                 <section>
                     <p>Component Based</p>
                     <p class="fragment">Reusable, encapsulated logic</p>
-                    <p class="fragment">Thousands of React components available on npm</p>
+                    <p class="fragment">React components available on npm</p>
                 </section>
 
                 <section>
@@ -250,7 +251,7 @@ const element = &lt;p&gt;
                     <p>Rendering Lists</p>
                     <pre><code class="hljs javascript" data-trim>
 const users = [
-    { name: 'Malcolm Reynolds', occupation: 'Captain / Browncoat' },
+    { name: 'Malcolm Reynolds', occupation: 'Captain' },
     { name: 'Svlad Cjelli', occupation: 'Holistic Detective' },
     { name: 'Daniel Jackson', occupation: 'Archaeologist' },
 ];
@@ -288,6 +289,189 @@ const userElements = users.map((user) => {
     return &lt;div key={user.name}&gt;{user.name} - {user.occupation}&lt;/div&gt;;
 });
                     </code></pre>
+                </section>
+
+                <section>
+                    <p>Components</p>
+                    <p class="fragment">Functional</p>
+                    <p class="fragment">Class</p>
+                </section>
+
+                <section>
+                    <p>Components - Functional</p>
+                    <pre><code>
+function Greet(props) {
+    return &lt;div&gt;Welcome {props.name}&lt;/div&gt;;
+}
+                    </code></pre>
+                    <pre class="fragment">Welcome Corey</pre>
+                </section>
+
+                <section>
+                    <p>Components - Class</p>
+                    <pre><code>
+class Greet extends React.Component {
+    render() {
+        return &lt;div&gt;Welcome {this.props.name}&lt;/div&gt;;
+    }
+}
+                    </code></pre>
+                    <pre class="fragment">Welcome Corey</pre>
+                </section>
+
+                <section>
+                    <p>Rendering Components</p>
+                    <pre><code>
+function App() {
+    return (&lt;div&gt;
+        &lt;Greet name="Corey" /&gt;
+        &lt;hr /&gt;
+        &lt;p&gt;Here's the content of my web app!&lt;/p&gt;
+    &lt;/div&gt;);
+}
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+                    </code></pre>
+                    <pre class="fragment">
+Welcome Corey<hr />Here's the content of my web app!
+                    </pre>
+                </section>
+
+                <section>
+                    <h1>How do we update the UI?</h1>
+                </section>
+
+                <section>
+                    <p>State</p>
+                    <p class="fragment">only available in ES6 classes</p>
+                </section>
+
+                <section>
+                    <p>State</p>
+                    <pre><code class="hljs javascript" data-trim>
+class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            counter: 0,
+        };
+        this.handleClickUp = this.handleClickUp.bind(this);
+        this.handleClickDown = this.handleClickDown.bind(this);
+    }
+
+    handleClickUp() {
+        this.setState((previousState) => {
+            return { counter: previousState.counter + 1 };
+        });
+    }
+
+    handleClickDown() {
+        this.setState((previousState) => {
+            return { counter: previousState.counter - 1 };
+        });
+    }
+
+    render() {
+        return (&lt;div&gt;
+            Counter: {this.state.counter} &lt;br /&gt;
+            &lt;button onClick={this.handleClickDown}&gt;Decrease&lt;/button&gt;
+            &lt;button onClick={this.handleClickUp}&gt;Increase&lt;/button&gt;
+        &lt;/div&gt;);
+    }
+}
+                    </code></pre>
+                    <p><a href="examples/state.html" target="_blank">View</a></p>
+                </section>
+
+                <section>
+                    <p>State - Constructor</p>
+                    <p class="fragment">set up initial state and event handlers</p>
+                    <pre class="fragment"><code class="hljs javascript" data-trim>
+constructor(props) {
+    super(props);
+    this.state = {
+        counter: 0,
+    };
+    this.handleClickUp = this.handleClickUp.bind(this);
+    this.handleClickDown = this.handleClickDown.bind(this);
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>State - Event Handlers</p>
+                    <p class="fragment">update state</p>
+                    <pre class="fragment"><code class="hljs javascript" data-trim>
+handleClickUp() {
+    this.setState((previousState) => {
+        return { counter: previousState.counter + 1 };
+    });
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>State - setState</p>
+                    <p class="fragment">asynchronously updates state</p>
+                    <p class="fragment">performs shallow merge</p>
+                    <pre class="fragment"><code>setState(updater[, callback])</code></pre>
+                    <pre class="fragment"><code>(previousState, props) => newState</code></pre>
+                </section>
+
+                <section>
+                    <p>State - setState</p>
+                    <pre class="fragment"><code>setState(newState[, callback])</code></pre></code></pre>
+                    <pre class="fragment"><code class="hljs javascript" data-trim>
+handleClickReset() {
+    this.setState({ counter: 0 });
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>State - render</p>
+                    <p class="fragment">state is available in this.state</p>
+                    <pre class="fragment"><code class="hljs javascript" data-trim>
+render() {
+    return (&lt;div&gt;
+        Counter: {this.state.counter} &lt;br /&gt;
+        &lt;button onClick={this.handleClickDown}&gt;Decrease&lt;/button&gt;
+        &lt;button onClick={this.handleClickUp}&gt;Increase&lt;/button&gt;
+    &lt;/div&gt;);
+}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <p>Lifecycle Events - Component Creation</p>
+                    <p class="fragment">constructor(props)</p>
+                    <p class="fragment">componentWillMount()</p>
+                    <p class="fragment">render()</p>
+                    <p class="fragment">componentDidMount()</p>
+                </section>
+
+                <section>
+                    <p>Lifecycle Events - Component Updates</p>
+                    <p class="fragment">componentWillReceiveProps(nextProps)</p>
+                    <p class="fragment">shouldComponentUpdate(nextProps, nextState)</p>
+                    <p class="fragment">componentWillUpdate(nextProps, nextState)</p>
+                    <p class="fragment">render()</p>
+                    <p class="fragment">componentDidUpdate(prevProps, prevState)</p>
+                </section>
+
+                <section>
+                    <p>Lifecycle Events - Component Deletion</p>
+                    <p class="fragment">componentWillUnmount()</p>
+                </section>
+
+                <section>
+                    <p>Other topics</p>
+                    <p>Single Page Applications (SPA)</p>
+                    <p>Bundling a web app (Webpack / Babel)</p>
+                    <p>More robust state management (Redux)</p>
+                    <p>ES6</p>
+                    <p>Server Side Rendering (SSR)</p>
+                    <p>Testing React Apps</p>
                 </section>
             </div>
         </div>
