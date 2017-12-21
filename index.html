@@ -48,7 +48,7 @@
                 </section>
 
                 <section>
-                    <p>Imperative</p>
+                    <h2>Imperative</h2>
                     <p>Describe a series of steps to reach a goal</p>
                     <pre class="fragment"><code class="hljs javascript" data-trim>
 function onClick(e) {
@@ -62,7 +62,7 @@ function onClick(e) {
                 </section>
 
                 <section>
-                    <p>Declarative</p>
+                    <h2>Declarative</h2>
                     <p>Describe the result you want</p>
                     <pre class="fragment"><code class="hljs javascript" data-trim>
 function render() {
@@ -77,14 +77,14 @@ function render() {
                 </section>
 
                 <section>
-                    <p>Universal</p>
+                    <h2>Universal</h2>
                     <p class="fragment">Server Side / Node</p>
                     <p class="fragment">Browser Side</p>
                     <p class="fragment">Native* Android/iOS</p>
                 </section>
 
                 <section>
-                    <p>Component Based</p>
+                    <h2>Component Based</h2>
                     <p class="fragment">Reusable, encapsulated logic</p>
                     <p class="fragment">React components available on npm</p>
                 </section>
@@ -122,25 +122,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 </section>
 
                 <section>
-                    <p>React.createElement</p>
+                    <h2>React.createElement</h2>
                     <pre>React.createElement(type, [props], [...children]);</pre>
                 </section>
 
                 <section>
-                    <p>React.createElement</p>
+                    <h2>React.createElement</h2>
                     <pre>React.createElement(<span class="highlight">type</span>, [props], [...children]);</pre>
                     <p><span class="highlight">type</span> - tag name (div, p, ...) or React component</p>
                 </section>
 
                 <section>
-                    <p>React.createElement</p>
+                    <h2>React.createElement</h2>
                     <pre>React.createElement(type, <span class="highlight">[props]</span>, [...children]);</pre>
                     <p>type - tag name (div, p, ...) or React component</p>
                     <p><span class="highlight">props</span> - optional props/attributes (href, src, ...)</p>
                 </section>
 
                 <section>
-                    <p>React.createElement</p>
+                    <h2>React.createElement</h2>
                     <pre>React.createElement(type, [props], <span class="highlight">[...children]</span>);</pre>
                     <p>type - tag name (div, p, ...) or React component</p>
                     <p>props - optional props/attributes (href, src, ...)</p>
@@ -148,25 +148,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 </section>
 
                 <section>
-                    <p>ReactDOM.render</p>
+                    <h2>ReactDOM.render</h2>
                     <pre>ReactDOM.render(element, container[, callback])</pre>
                 </section>
 
                 <section>
-                    <p>ReactDOM.render</p>
+                    <h2>ReactDOM.render</h2>
                     <pre>ReactDOM.render(<span class="highlight">element</span>, container[, callback])</pre>
                     <p><span class="highlight">element</span> - root react element</p>
                 </section>
 
                 <section>
-                    <p>ReactDOM.render</p>
+                    <h2>ReactDOM.render</h2>
                     <pre>ReactDOM.render(element, <span class="highlight">container</span>[, callback])</pre>
                     <p>element - root react element</p>
                     <p><span class="highlight">container</span> - DOM element to inject the root react element into</p>
                 </section>
 
                 <section>
-                    <p>ReactDOM.render</p>
+                    <h2>ReactDOM.render</h2>
                     <pre>ReactDOM.render(element, container<span class="highlight">[, callback]</span>)</pre>
                     <p>element - root react element</p>
                     <p>container - DOM element to inject the root react element into</p>
@@ -178,13 +178,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 </section>
 
                 <section>
-                    <h1>JSX</h1>
+                    <h2>JSX</h2>
                     <p class="fragment">XML-like syntax extension</p>
                     <p class="fragment">Transpiles down to JS (React.createElement)</p>
                 </section>
 
                 <section>
-                    <p>Raw JS</p>
+                    <h2>Raw JS</h2>
                     <pre><code class="hljs javascript" data-trim>
 const root = React.createElement('div', {},
     React.createElement('h1', {}, 'React - Hello World'),
@@ -199,7 +199,7 @@ const root = React.createElement('div', {},
                 </section>
 
                 <section>
-                    <p>JSX</p>
+                    <h2>JSX</h2>
                     <pre><code class="hljs javascript" data-trim>
 const root = (&lt;div&gt;
     &lt;h1&gt;React - Hello World&lt;/h1&gt;
@@ -213,7 +213,7 @@ const root = (&lt;div&gt;
                 </section>
 
                 <section>
-                    <p>Embedding Expressions</p>
+                    <h2>Embedding Expressions</h2>
                     <pre><code class="hljs javascript" data-trim>
 const name = 'Corey';
 const element = &lt;p&gt;Hello {name}&lt;/p&gt;;
@@ -222,7 +222,7 @@ const element = &lt;p&gt;Hello {name}&lt;/p&gt;;
                 </section>
 
                 <section>
-                    <p>Embedding Expressions</p>
+                    <h2>Embedding Expressions</h2>
                     <pre><code class="hljs javascript" data-trim>
 const element = &lt;p&gt;
     The circumference of a circle with a radius of 1.5 meters is:&lt;br /&gt;
@@ -236,7 +236,7 @@ The circumference of a circle with a radius of 1.5 meters is:
                 </section>
 
                 <section>
-                    <p>Embedding Expressions</p>
+                    <h2>Embedding Expressions</h2>
                     <pre><code class="hljs javascript" data-trim>
 const url = 'https://reactjs.org';
 const element = &lt;p&gt;
@@ -248,7 +248,7 @@ const element = &lt;p&gt;
                 </section>
 
                 <section>
-                    <p>Rendering Lists</p>
+                    <h2>Rendering Lists</h2>
                     <pre><code class="hljs javascript" data-trim>
 const users = [
     { name: 'Malcolm Reynolds', occupation: 'Captain' },
@@ -272,7 +272,7 @@ Daniel Jackson - Archaeologist
                 </section>
 
                 <section>
-                    <p>Rendering Lists - Keys</p>
+                    <h2>Rendering Lists - Keys</h2>
                     <pre><code class="hljs javascript" data-trim>
 const userElements = users.map((user) => {
     return &lt;div&gt;{user.name} - {user.occupation}&lt;/div&gt;;
@@ -292,13 +292,13 @@ const userElements = users.map((user) => {
                 </section>
 
                 <section>
-                    <p>Components</p>
+                    <h2>Components</h2>
                     <p class="fragment">Functional</p>
                     <p class="fragment">Class</p>
                 </section>
 
                 <section>
-                    <p>Components - Functional</p>
+                    <h2>Components - Functional</h2>
                     <pre><code>
 function Greet(props) {
     return &lt;div&gt;Welcome {props.name}&lt;/div&gt;;
@@ -308,7 +308,7 @@ function Greet(props) {
                 </section>
 
                 <section>
-                    <p>Components - Class</p>
+                    <h2>Components - Class</h2>
                     <pre><code>
 class Greet extends React.Component {
     render() {
@@ -320,7 +320,7 @@ class Greet extends React.Component {
                 </section>
 
                 <section>
-                    <p>Rendering Components</p>
+                    <h2>Rendering Components</h2>
                     <pre><code>
 function App() {
     return (&lt;div&gt;
@@ -342,12 +342,12 @@ Welcome Corey<hr />Here's the content of my web app!
                 </section>
 
                 <section>
-                    <p>State</p>
-                    <p class="fragment">only available in ES6 classes</p>
+                    <h1>State</h1>
                 </section>
 
                 <section>
-                    <p>State</p>
+                    <h2>State</h2>
+                    <p>only available in ES6 classes</p>
                     <pre><code class="hljs javascript" data-trim>
 class Counter extends React.Component {
     constructor(props) {
@@ -384,7 +384,7 @@ class Counter extends React.Component {
                 </section>
 
                 <section>
-                    <p>State - Constructor</p>
+                    <h2>State - Constructor</h2>
                     <p class="fragment">set up initial state and event handlers</p>
                     <pre class="fragment"><code class="hljs javascript" data-trim>
 constructor(props) {
@@ -399,7 +399,7 @@ constructor(props) {
                 </section>
 
                 <section>
-                    <p>State - Event Handlers</p>
+                    <h2>State - Event Handlers</h2>
                     <p class="fragment">update state</p>
                     <pre class="fragment"><code class="hljs javascript" data-trim>
 handleClickUp() {
@@ -411,7 +411,7 @@ handleClickUp() {
                 </section>
 
                 <section>
-                    <p>State - setState</p>
+                    <h2>State - setState</h2>
                     <p class="fragment">asynchronously updates state</p>
                     <p class="fragment">performs shallow merge</p>
                     <pre class="fragment"><code>setState(updater[, callback])</code></pre>
@@ -419,7 +419,7 @@ handleClickUp() {
                 </section>
 
                 <section>
-                    <p>State - setState</p>
+                    <h2>State - setState</h2>
                     <pre class="fragment"><code>setState(newState[, callback])</code></pre></code></pre>
                     <pre class="fragment"><code class="hljs javascript" data-trim>
 handleClickReset() {
@@ -429,7 +429,7 @@ handleClickReset() {
                 </section>
 
                 <section>
-                    <p>State - render</p>
+                    <h2>State - render</h2>
                     <p class="fragment">state is available in this.state</p>
                     <pre class="fragment"><code class="hljs javascript" data-trim>
 render() {
@@ -443,7 +443,7 @@ render() {
                 </section>
 
                 <section>
-                    <p>Lifecycle Events - Component Creation</p>
+                    <h2>Lifecycle Events - Component Creation</h2>
                     <p class="fragment">constructor(props)</p>
                     <p class="fragment">componentWillMount()</p>
                     <p class="fragment">render()</p>
@@ -451,7 +451,7 @@ render() {
                 </section>
 
                 <section>
-                    <p>Lifecycle Events - Component Updates</p>
+                    <h2>Lifecycle Events - Component Updates</h2>
                     <p class="fragment">componentWillReceiveProps(nextProps)</p>
                     <p class="fragment">shouldComponentUpdate(nextProps, nextState)</p>
                     <p class="fragment">componentWillUpdate(nextProps, nextState)</p>
@@ -460,12 +460,12 @@ render() {
                 </section>
 
                 <section>
-                    <p>Lifecycle Events - Component Deletion</p>
+                    <h2>Lifecycle Events - Component Deletion</h2>
                     <p class="fragment">componentWillUnmount()</p>
                 </section>
 
                 <section>
-                    <p>Other topics</p>
+                    <h2>Other topics</h2>
                     <p>Single Page Applications (SPA)</p>
                     <p>Bundling a web app (Webpack / Babel)</p>
                     <p>More robust state management (Redux)</p>
